@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 chat = ChatOpenAI()
 
 messages = [
+
     HumanMessage(
         content="Translate this sentence from English to French: I love programming."
     ),
@@ -13,7 +14,7 @@ messages = [
 
 result = chat.invoke(messages).content
 
-messages.append(result)
+messages.append(AIMessage(content=result))
 print(messages)
 
 # Continue the conversation
@@ -25,5 +26,5 @@ while True:
 
     result = chat.invoke(messages).content
 
-    messages.append(result)
+    messages.append(AIMessage(content=result))
     print(messages)
